@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}顯示所有資料{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+		<h2>顯示 student 資料表所有資料</h2>
+		<table class="table table-striped">
+			<thead>
+    			<tr>
+					<th scope="col">編號</th>
+					<th scope="col">姓名</th>
+					<th scope="col">學號</th>
+					<th scope="col">性別</th>
+					<th scope="col">生日</th>
+					<th scope="col">郵件帳號</th>
+					<th scope="col">電話</th>
+					<th scope="col">地址</th>
+					<th scope="col">編輯</th>
+					<th scope="col">刪除</th>
+
+				</tr>
+  			</thead>
+  			<tbody>
+			{% for student in allStudents %}
+				<tr scope="row">
+					<td>{{ student.id }} </td>
+					<td>{{ student.stdName }} </td>
+					<td>{{ student.stdID }} </td>
+					<td>{{ student.stdSex}} </td>
+					<td>{{ student.stdBirth }} </td>
+					<td>{{ student.stdEmail }} </td>
+					<td>{{ student.stdPhone}} </td>
+					<!--船值得方式-->
+					<td>{{ student.stdAddress }} </td>
+					     <!--boostrap bottom 放在按鈕名稱處-->
+					<td> <a href="/edit/.html"><button type="button" class="btn btn-outline-warning">編輯</button></a>	 </td>
+					<td> <a href="/delete/.html"><button type="button" class="btn btn-outline-info">刪除</button></a>	  </td>						
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+{% endblock %}

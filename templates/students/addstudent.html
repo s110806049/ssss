@@ -1,0 +1,23 @@
+<!--讓使用者從前端去加資料-->
+{% extends "base.html" %}
+{% block title %}請準備輸入資料{% endblock %}
+{% block content %}
+<br>
+<br>
+<br>
+<!-- 製作表單 -->
+<!-- action當按下送出時- 會找到傳出去的東西-打資料接收 -->
+<form action="/post/" method="POST" name="addstd">
+<!-- token告訴說這是安全的 -->
+	{% csrf_token %}
+	<div>請輸入姓名：<input type="text" name="stdName" />
+	<div>請輸入學號：<input type="text" name="stdID" />
+	<div>請輸入姓別：<input type="text" name="stdSex " />
+	<div>請輸入生日：<input type="text" name="stdBirth " />
+	<div>請輸入信箱：<input type="text" name="stdEmail" />
+	<div>請輸入手機號碼：<input type="text" name="stdPhone" />
+		<input type="submit" value="送出資料" />
+	</div>
+	<div> 接收到的資料：{{mess}} </div>
+</form>
+{% endblock %}
